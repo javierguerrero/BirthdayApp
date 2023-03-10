@@ -10,5 +10,7 @@ namespace Application.Contacts
     public interface IContactService
     {
         Task<ICollection<Contact>> GetAllAsync();
+        Task<bool> SendMessageToContactAsync(Contact contact);
+        Task<ICollection<Contact>> GetTodayBirthdaysAsync();
     }
 }

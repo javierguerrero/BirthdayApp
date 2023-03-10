@@ -1,5 +1,8 @@
 using Application.Contacts;
+using Domain.Interfaces;
 using Infrastructure.DataAccess;
+using Infrastructure.DataAccess.Repositories;
+using Infrastructure.Notification;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +19,8 @@ var host = new HostBuilder()
 
         // Inyección de depndencias de servicios personalizados
         services.AddTransient<IContactService, ContactService>();
+        services.AddTransient<IContactRepository, ContactRepository>();
+        services.AddTransient<INotifier, Notifier>();
     })
     .Build();
 

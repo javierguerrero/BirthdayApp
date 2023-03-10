@@ -73,6 +73,25 @@ $env:SqlConnectionString="Server=tcp:sqlserver-birthdaybot.database.windows.net,
 
 
 
+# Azure Resources
+	[SQL Database Server]
+		server-name: sqlserver-birthdaybot.database.windows.net
+		admin-login: dbadmin
+		pass: NOfumar34*
+
+	[SQL database]
+		database-name: sqldb-birthdaybot-prod
+		
+		Para poder ejecutar las migrations desde Visual Studio a la BD en Azure, tenemos que ingresar la BD, luego "Connect with...", elegir "Visual Studio" y hacer click en "Configure your firewall". Aquí, agregar la IP de el entorno local de desarrollo.
+		
+	
+	Azure function
+		Ingresar a "Settings >> Configuration" y crear una nueva "application setting" con el nombre "SqlConnectionString"
+		Para que la función pueda acceder al servidor de BD, tenemos que entrar a este y marcar la opción "Allow Azure services and resources to access to this server"
+		
+	
+		
+	
 
 
 
