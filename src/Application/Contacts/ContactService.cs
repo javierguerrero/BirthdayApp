@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Interfaces;
 using Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,19 +12,36 @@ namespace Application.Contacts
 {
     public class ContactService : IContactService
     {
-        private readonly ApplicationContext _context;
+        private readonly IContactRepository _contactRepository;
 
-        public ContactService(ApplicationContext context)
+        public ContactService(IContactRepository contactRepository)
         {
-            _context = context;
+            _contactRepository = contactRepository;
         }
 
         public async Task<ICollection<Contact>> GetAllAsync()
         {
-            var contacts = new List<Contact>();
+            ICollection<Contact> contacts = new List<Contact>();
             try
             {
-                contacts = await _context.Contacts.ToListAsync();
+                contacts = await _contactRepository.GetAllAsync();
+            }
+            catch (Exception ex)
+            {
+                // logging
+                throw;
+            }
+
+            return contacts;
+        }
+
+        public async Task<ICollection<Contact>> GetTodayBirthdays()
+        {
+            ICollection<Contact> contacts = new List<Contact>();
+
+            try
+            {
+                contacts = await _contactRepository.GetAllAsync();
             }
             catch (Exception ex)
             {

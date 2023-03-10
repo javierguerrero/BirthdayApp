@@ -9,6 +9,6 @@ namespace Domain.Interfaces
 {
     public interface IContactRepository
     {
-        IEnumerable<Contact> GetAll();
+        Task<ICollection<Contact>> GetAllAsync();
     }
 }

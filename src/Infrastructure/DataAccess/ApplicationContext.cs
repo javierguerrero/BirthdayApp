@@ -22,9 +22,10 @@ namespace Infrastructure.DataAccess
 
             modelBuilder.Entity<Contact>()
                 .HasData(
-                    new Contact() { Id = 1, Name = "Bacilio", LastName ="Gonzales", Email="baciliogonzales@gmail.com",PhoneNumber="+51992691213" }
+                    new Contact() { Id = 1, Name = "Bacilio", LastName ="Gonzales", Birthday= new DateTime(1985, 7, 8)  , Email="baciliogonzales@gmail.com",PhoneNumber="+51992691213" },
+                    new Contact() { Id = 2, Name = "Javier", LastName ="Guerrero", Birthday= new DateTime(1982, 2, 17)  , Email="javierguerrero.tech@gmail.com",PhoneNumber="+51976268172" },
+                    new Contact() { Id = 3, Name = "John", LastName ="Doe", Birthday= new DateTime(1980, 3, 10)  , Email="johndoe@gmail.com",PhoneNumber= "+51976268172" }
                 );
-
         }
 
     }

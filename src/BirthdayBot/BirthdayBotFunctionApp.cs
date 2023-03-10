@@ -29,8 +29,10 @@ namespace BirthdayBot
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
             var foo = await _contactService.GetAllAsync();
+            var bar = foo.FirstOrDefault();
 
-            response.WriteString(DateTime.Now.ToString());
+
+            response.WriteString(bar?.Name + " " + DateTime.Now.ToString());
 
             return response;
         }
