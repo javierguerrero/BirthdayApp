@@ -1,35 +1,41 @@
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
+using System.Net;
+using Application.Contacts;
+using Infrastructure.DataAccess;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 
 namespace BirthdayBot
 {
-    public static class BirthdayBotFunctionApp
+    public class BirthdayBotFunctionApp
     {
-        [FunctionName("BirthdayBotFunctionApp")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
+        private readonly ILogger _logger;
+        private readonly IContactService _contactService;
+
+        public BirthdayBotFunctionApp(ILoggerFactory loggerFactory, IContactService contactService)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-
-            SendSMSMessage();
-
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            return (ActionResult)new OkObjectResult(DateTime.Now.ToString());
+            _logger = loggerFactory.CreateLogger<BirthdayBotFunctionApp>();
+            _contactService = contactService;
         }
 
+        [Function("BirthdayBotFunctionApp")]
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-        private static void SendSMSMessage()
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+            var foo = await _contactService.GetAllAsync();
+
+            response.WriteString(DateTime.Now.ToString());
+
+            return response;
+        }
+
+        private void SendSMSMessage()
         {
             try
             {
@@ -51,5 +57,6 @@ namespace BirthdayBot
                 throw;
             }
         }
+
     }
 }
