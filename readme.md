@@ -110,7 +110,12 @@ This section provides an overview of the BirthdayApp software architecture.
 
 The following diagram shows the logical containers that make up the BirthdayApp system. The diagram does not represent the physical number and location of containers - please see the infrastructure and deployment sections for this information.
 
-![](https://lh6.googleusercontent.com/xhQmeNMIbQD2XSbiuNhTN-gnfB84PiLjm8KGQZLelabX9Y4DeLd8AR2O6t9pNemeWLA=w2400)
+![](https://drive.google.com/uc?id=13jQbgeE98V2CUwzMvOaNLiSw0m0MyuLo)
+
+- **Contacts Web:**
+- **Contacts API:**
+- **Database:** A SQL Server database that stores that stores the majority of the data behind the BirthdayApp.
+- **BirthdayBot:**
 
 ### Components - BirthdayBot
 
@@ -186,4 +191,5 @@ PM> Update-Database [Migration_Name]
 $env:SqlConnectionString="Server=DESKTOP-UAKPHLG\SQLEXPRESS; Database=sqldb-birthdaybot-dev; Trusted_Connection=True; TrustServerCertificate=True;"
 ```
 
+https://www.labnol.org/google-drive-image-hosting-220515
 https://www.markdownguide.org/basic-syntax/
