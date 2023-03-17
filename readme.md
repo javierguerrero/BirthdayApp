@@ -30,7 +30,7 @@ Here's a context diagram tha provides a visual summary of this:
 There are two types of systems that BirthdayApp integrates with.
 
 1. **Twilio:** Twilio’s Programmable SMS API helps you add robust messaging capabilities to your applications.
-2. **E-mail System:** The SMTP server for Gmail is a free SMTP server that anyone across the globe can use. It allows you to manage email transactions from your Gmail account via email clients or web applications. ![More info](https://www.siteground.com/kb/gmail-smtp-server/)
+2. **E-mail System:** The SMTP server for Gmail is a free SMTP server that anyone across the globe can use. It allows you to manage email transactions from your Gmail account via email clients or web applications. [More info](https://www.siteground.com/kb/gmail-smtp-server/)
 
 ## Functional Overview
 

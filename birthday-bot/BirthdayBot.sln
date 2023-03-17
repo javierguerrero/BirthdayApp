@@ -7,11 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-src", "1-src", "{1E6E73EE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-test", "2-test", "{A3F93A08-D75B-460C-81DC-E75C48F0F587}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-doc", "3-doc", "{E99621CD-93DB-432B-84E0-A70C4A3C7480}"
-	ProjectSection(SolutionItems) = preProject
-		doc\software-guidebook.md = doc\software-guidebook.md
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirthdayBot", "src\BirthdayBot\BirthdayBot.csproj", "{8A83D755-1C06-4D61-9645-9DC430B31E1B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{C4D1FC86-D2ED-43EE-9AE5-D1B28A8FA584}"
@@ -20,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{E4805E86-E46E-4DEE-842D-EBB200ACD27B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Tests", "test\Application.Tests\Application.Tests.csproj", "{811AE0F6-83A6-4A1B-B6FD-EBF400E99834}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Tests", "test\Application.Tests\Application.Tests.csproj", "{811AE0F6-83A6-4A1B-B6FD-EBF400E99834}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
