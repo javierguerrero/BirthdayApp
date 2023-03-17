@@ -1,4 +1,4 @@
-# Software Guidebook
+# BirthdayApp - Software Guidebook
 
 ## Introduction
 
