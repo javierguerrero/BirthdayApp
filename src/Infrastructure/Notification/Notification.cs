@@ -9,8 +9,8 @@ namespace Infrastructure.Notification
         {
             // Find your Account SID and Auth Token at twilio.com/console
             // and set the environment variables. See http://twil.io/secure
-            string accountSid = "ACfdb02975b5150521dca1b9d389f57f33";
-            string authToken = "3fda43defbf2c40327dbd6572163f55f";
+            string accountSid = "";
+            string authToken = "";
 
             TwilioClient.Init(accountSid, authToken);
 

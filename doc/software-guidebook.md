@@ -2,11 +2,24 @@
 
 ## Introduction
 
-BirthdayBot
+This software guidebook provides an overview of the BirthdayApp. It includes a summary of the following:
+
+- The requirements, constraints and principles behind the solution.
+- The software architecture, including the high-level technology choices and structure of the software.
+- The infrastructure architecture and how the software is deployed.
+- Operational and support aspects of the application.
 
 ## Context
 
-![](https://lh4.googleusercontent.com/xJRYRj0FDfaO3PqwTBxpuMqeCLuBp66HZkB2J6YB-TBmKUbptAy6_B_hu1A0TfDXUz4=w2400)
+BirthdayApp is a software solution that enables you to manage your contacts and remember the birthdays of your friends, family, and coworkers. With this application, you can easily add new contacts to your birthday list and receive reminders when their birthdays are approaching.
+
+In addition, BirthdayApp allows you to automatically send birthday greetings to your contacts, so you never forget to send your best wishes on your loved ones' special day. You can personalize your birthday messages and schedule them to be automatically sent on the exact date of the birthday.
+
+With BirthdayApp, you'll never have to worry about forgetting your friends' and family's birthdays, and you can always surprise them with a personalized greeting on their special day!
+
+Here's a context diagram tha provides a visual summary of this:
+
+![](https://drive.google.com/uc?id=1vX7S926bLIMZbfIzyQGVxxPKNQMvl0Ml)
 
 ## Functional Overview
 
@@ -27,8 +40,6 @@ BirthdayBot
 ## Operation and Support
 
 Azure Function
-
-
 
 ## Development Environment
 
@@ -62,56 +73,19 @@ PM> Update-Database [Migration_Name]
 ```
 
 **Variable de entorno: ConnectionString**
+
 ```
 $env:SqlConnectionString="Server=DESKTOP-UAKPHLG\SQLEXPRESS; Database=sqldb-birthdaybot-dev; Trusted_Connection=True; TrustServerCertificate=True;"
 ```
 
-```
-$env:SqlConnectionString="Server=tcp:sqlserver-birthdaybot.database.windows.net,1433;Initial Catalog=sqldb-birthdaybot-prod;Persist Security Info=False;User ID=dbadmin;Password=NOfumar34*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"	
-```
-
-
-
-
 # Azure Resources
-	[SQL Database Server]
-		server-name: sqlserver-birthdaybot.database.windows.net
-		admin-login: dbadmin
-		pass: NOfumar34*
 
-	[SQL database]
-		database-name: sqldb-birthdaybot-prod
-		
-		Para poder ejecutar las migrations desde Visual Studio a la BD en Azure, tenemos que ingresar la BD, luego "Connect with...", elegir "Visual Studio" y hacer click en "Configure your firewall". Aquí, agregar la IP de el entorno local de desarrollo.
-		
-	
-	Azure function
-		Ingresar a "Settings >> Configuration" y crear una nueva "application setting" con el nombre "SqlConnectionString"
-		Para que la función pueda acceder al servidor de BD, tenemos que entrar a este y marcar la opción "Allow Azure services and resources to access to this server"
-		
-	
-		
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Azure function
+    	Ingresar a "Settings >> Configuration" y crear una nueva "application setting" con el nombre "SqlConnectionString"
+    	Para que la función pueda acceder al servidor de BD, tenemos que entrar a este y marcar la opción "Allow Azure services and resources to access to this server"
 
 Azure name convention
 
 https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
-
-
 
 https://www.labnol.org/google-drive-image-hosting-220515
