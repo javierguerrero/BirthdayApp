@@ -186,5 +186,4 @@ PM> Update-Database [Migration_Name]
 $env:SqlConnectionString="Server=DESKTOP-UAKPHLG\SQLEXPRESS; Database=sqldb-birthdaybot-dev; Trusted_Connection=True; TrustServerCertificate=True;"
 ```
 
-https://www.labnol.org/google-drive-image-hosting-220515
 https://www.markdownguide.org/basic-syntax/
