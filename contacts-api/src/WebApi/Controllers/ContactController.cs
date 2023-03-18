@@ -1,4 +1,5 @@
 using Application.Contacts.Commands;
+using Application.Contacts.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,13 @@ namespace WebApi.Controllers
         {
             await _mediator.Send(command);
             return Ok("Completed");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _mediator.Send(new GetAllContactsQuery());
+            return Ok(result);
         }
     }
 }

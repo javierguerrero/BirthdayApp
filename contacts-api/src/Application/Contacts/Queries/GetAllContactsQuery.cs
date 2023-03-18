@@ -1,15 +1,14 @@
 ﻿using Domain.Entities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces
+namespace Application.Contacts.Queries
 {
-    public interface IContactRepository
+    public class GetAllContactsQuery : IRequest<IEnumerable<Contact>>
     {
-        Task AddAsync(Contact entity);
-        Task<IEnumerable<Contact>> GetAllAsync();
     }
 }
