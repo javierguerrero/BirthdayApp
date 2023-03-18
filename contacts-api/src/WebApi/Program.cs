@@ -2,24 +2,15 @@ using Infrastructure.DataAccess;
 using Application;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using Presentation;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services
-    .AddApplication()
-    .AddInfrastructure()
-    .AddPresentation();
-
-
-// Inicializar EF Core por Inyección de Dependencias
 var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetRequiredService<IConfiguration>();
-builder.Services.AddDbContext<ApplicationContext>(options =>
-    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-// Inyección de depndencias de servicios personalizados
-
+builder.Services
+    .AddApplication()
+    .AddInfrastructure(configuration);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

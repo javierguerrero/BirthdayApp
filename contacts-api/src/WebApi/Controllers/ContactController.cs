@@ -1,4 +1,5 @@
-using Domain.Entities;
+using Application.Contacts.Commands;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -7,25 +8,20 @@ namespace WebApi.Controllers
     [Route("[controller]")]
     public class ContactController : ControllerBase
     {
+        private readonly IMediator _mediator;
         private readonly ILogger<ContactController> _logger;
 
-        public ContactController(ILogger<ContactController> logger)
+        public ContactController(ILogger<ContactController> logger, IMediator mediator)
         {
             _logger = logger;
+            _mediator = mediator;
         }
-
 
         [HttpPost]
-        public async Task<ActionResult<Contact>> PostContact(Contact contact)
+        public async Task<IActionResult> Create(CreateContactCommand command)
         {
-            return CreatedAtAction(nameof(PostContact), contact);
-        }
-
-
-        [HttpGet]
-        public IEnumerable<Contact> Get()
-        {
-            return (IEnumerable<Contact>)Ok();
+            await _mediator.Send(command);
+            return Ok("Completed");
         }
     }
 }
