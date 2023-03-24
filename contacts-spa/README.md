@@ -8,7 +8,11 @@ ng add @angular/material
 ejecutar aplicación
 ng serve -o
 
+crear módulo
+ng g m auth
 
+crear un componente 
+ng g c auth/pages/login --skipTests -is
 
 
 
