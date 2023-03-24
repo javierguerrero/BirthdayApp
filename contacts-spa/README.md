@@ -1,9 +1,7 @@
-
 Angular Material
 https://material.angular.io/guide/getting-started
 
 ng add @angular/material
-
 
 ejecutar aplicación
 ng serve -o
@@ -11,12 +9,11 @@ ng serve -o
 crear módulo
 ng g m auth
 
-crear un componente 
-ng g c auth/pages/login --skipTests -is
+crear un componente
+ng g c auth/pages/login
 
-
-
-
+crear módulo en la raiz del proyecto
+ng g m appRouting --flat
 
 # Contacts
 
