@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com"
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "name": "John",
+      "lastname": "Doe",
+      "email": "jdoe@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Juan",
+      "lastname": "Perez",
+      "email": "jperez@gmail.com"
+    }	
+  ]
+}

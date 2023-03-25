@@ -1,7 +1,11 @@
 Angular Material
 https://material.angular.io/guide/getting-started
-
 ng add @angular/material
+
+Angular Flex-Layout
+
+reconstruir módulo de nodejs
+npm install
 
 ejecutar aplicación
 ng serve -o
@@ -14,6 +18,12 @@ ng g c auth/pages/login
 
 crear módulo en la raiz del proyecto
 ng g m appRouting --flat
+
+json-server
+https://www.npmjs.com/package/json-server
+
+levantar json-server
+json-server --watch db.json
 
 # Contacts
 

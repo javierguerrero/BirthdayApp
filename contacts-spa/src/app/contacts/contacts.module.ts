@@ -5,6 +5,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { ContactsRoutingModule } from './contacts-routing.module';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,10 @@ import { ContactsRoutingModule } from './contacts-routing.module';
     HomeComponent,
     ListComponent,
   ],
-  imports: [CommonModule, ContactsRoutingModule],
+  imports: [
+    CommonModule, 
+    ContactsRoutingModule, 
+    MaterialModule
+  ],
 })
 export class ContactsModule {}
