@@ -6,6 +6,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { ContactCardComponent } from './components/contact-card/contact-card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,11 +15,13 @@ import { MaterialModule } from '../material/material.module';
     ContactComponent,
     HomeComponent,
     ListComponent,
+    ContactCardComponent,
   ],
   imports: [
     CommonModule, 
     ContactsRoutingModule, 
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
 })
 export class ContactsModule {}

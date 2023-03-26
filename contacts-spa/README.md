@@ -2,28 +2,34 @@ Angular Material
 https://material.angular.io/guide/getting-started
 ng add @angular/material
 
-Angular Flex-Layout
-
-reconstruir módulo de nodejs
+Reconstruir módulo de nodejs
 npm install
 
-ejecutar aplicación
+Ejecutar aplicación
 ng serve -o
 
-crear módulo
+Crear módulo
 ng g m auth
 
-crear un componente
+Crear un componente
 ng g c auth/pages/login
 
-crear módulo en la raiz del proyecto
+Crear módulo en la raiz del proyecto
 ng g m appRouting --flat
 
 json-server
 https://www.npmjs.com/package/json-server
 
-levantar json-server
+Levantar json-server
 json-server --watch db.json
+
+https://quicktype.io/
+
+Crear variables de entorno
+ng g environments
+
+CSS Grid Generator
+https://cssgrid-generator.netlify.app/
 
 # Contacts
 

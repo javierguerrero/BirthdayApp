@@ -1,10 +1,4 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "email": "admin@gmail.com"
-    }
-  ],
   "contacts": [
     {
       "id": 1,
@@ -17,6 +11,18 @@
       "name": "Juan",
       "lastname": "Perez",
       "email": "jperez@gmail.com"
-    }	
+    },    
+	{
+      "id": 3,
+      "name": "Luis",
+      "lastname": "Rodriguez",
+      "email": "rrodriguez@gmail.com"
+    },
+	{
+      "id": 4,
+      "name": "Cristina",
+      "lastname": "Mendez",
+      "email": "cmendez@gmail.com"
+    }		
   ]
 }

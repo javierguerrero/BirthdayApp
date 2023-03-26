@@ -1,1 +1,9 @@
-<p>list works!</p>
+<p>Contact list</p>
+<mat-divider></mat-divider>
+<br />
+
+<div class="container">
+  <div *ngFor="let contact of contacts">
+    <app-contact-card [contact]="contact"></app-contact-card>
+  </div>
+</div>

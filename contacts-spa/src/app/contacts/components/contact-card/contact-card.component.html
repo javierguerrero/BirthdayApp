@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ contact.name }} {{ contact.lastname }}</mat-card-title>
+    <mat-card-subtitle>{{ contact.email }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image src="assets/no-image.png" />
+
+  <mat-card-content>
+    <h3></h3>
+    <p>
+      <strong>E-mail:</strong> {{ contact.email }}
+      <br />
+      <strong>Phone:</strong> {{ contact.phonenumber }}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button color="warn" [routerLink]="['/contacts', contact.id]">
+      View
+    </button>
+    <button
+      mat-button
+      color="info"
+      [routerLink]="['/contacts/edit', contact.id]"
+    >
+      Edit
+    </button>
+  </mat-card-actions>
+</mat-card>

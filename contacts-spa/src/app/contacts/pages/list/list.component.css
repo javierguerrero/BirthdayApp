@@ -1,0 +1,10 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 30%);
+  grid-row-gap: 1em;
+  grid-column-gap: 1em;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+}

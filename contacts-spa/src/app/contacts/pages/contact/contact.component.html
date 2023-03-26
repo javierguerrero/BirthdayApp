@@ -1,1 +1,28 @@
-<p>contact works!</p>
+<mat-grid-list cols="1" *ngIf="!contact; else divContact">
+  <mat-grid-tile>
+    <mat-spinner></mat-spinner>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divContact>
+  <div class="container">
+    <div>
+      <h1>{{ contact.name }} <small>{{ contact.lastname }}</small></h1>
+      <mat-divider></mat-divider>
+      <br />
+      <img src="assets/no-image.png" />
+    </div>
+    <div>
+      <h1>Info</h1>
+      <mat-divider></mat-divider>
+      <mat-list>
+        <mat-list-item>{{ contact.email }}</mat-list-item>
+        <mat-list-item>{{ contact.phonenumber }}</mat-list-item>
+      </mat-list>
+
+      <br />
+
+      <button mat-button color="warn" (click)="back()">Back</button>
+    </div>
+  </div>
+</ng-template>
