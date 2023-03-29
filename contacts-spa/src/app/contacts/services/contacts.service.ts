@@ -25,4 +25,8 @@ export class ContactsService {
       `${this.baseUrl}/contacts?q=${term}&_limit=6`
     );
   }
+
+  addContact(contact: Contact): Observable<Contact> {
+    return this.http.post<Contact>(`${this.baseUrl}/contacts`, contact);
+  }
 }

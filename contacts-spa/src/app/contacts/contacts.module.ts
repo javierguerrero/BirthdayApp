@@ -8,20 +8,17 @@ import { ContactsRoutingModule } from './contacts-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
 import { FormsModule } from '@angular/forms';
+import { CreateComponent } from './pages/create/create.component';
 
 @NgModule({
   declarations: [
+    CreateComponent,
     SearchComponent,
     ContactComponent,
     HomeComponent,
     ListComponent,
     ContactCardComponent,
   ],
-  imports: [
-    CommonModule, 
-    ContactsRoutingModule, 
-    MaterialModule,
-    FormsModule
-  ],
+  imports: [CommonModule, ContactsRoutingModule, MaterialModule, FormsModule],
 })
 export class ContactsModule {}
