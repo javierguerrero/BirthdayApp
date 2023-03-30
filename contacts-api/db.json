@@ -4,25 +4,29 @@
       "id": 1,
       "name": "John",
       "lastname": "Doe",
-      "email": "jdoe@gmail.com"
+      "email": "jdoe@gmail.com",
+      "phonenumber": "+51986587236"
     },
     {
       "id": 2,
       "name": "Juan",
       "lastname": "Perez",
-      "email": "jperez@gmail.com"
-    },    
-	{
+      "email": "jperez@gmail.com",
+      "phonenumber": "+51987654321"
+    },
+    {
       "id": 3,
       "name": "Luis",
       "lastname": "Rodriguez",
-      "email": "rrodriguez@gmail.com"
+      "email": "rrodriguez@gmail.com",
+      "phonenumber": "+51955599968"
     },
-	{
+    {
       "id": 4,
       "name": "Cristina",
       "lastname": "Mendez",
-      "email": "cmendez@gmail.com"
-    }		
+      "email": "cmendez@gmail.com",
+      "phonenumber": "+51923695417"
+    }
   ]
 }

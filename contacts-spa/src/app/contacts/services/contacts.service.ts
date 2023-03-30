@@ -29,4 +29,15 @@ export class ContactsService {
   addContact(contact: Contact): Observable<Contact> {
     return this.http.post<Contact>(`${this.baseUrl}/contacts`, contact);
   }
+
+  updateContact(contact: Contact): Observable<Contact> {
+    return this.http.put<Contact>(
+      `${this.baseUrl}/contacts/${contact.id}`,
+      contact
+    );
+  }
+
+  deleteContact(id: number): Observable<any> {
+    return this.http.delete<Contact>(`${this.baseUrl}/contacts/${id}`);
+  }
 }

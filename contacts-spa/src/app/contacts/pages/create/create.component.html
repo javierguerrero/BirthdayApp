@@ -1,4 +1,8 @@
-<h1>New contact <small>abc</small></h1>
+<h1>
+  {{ contact.id ? "Edit" : "New" }}
+
+  contact <small>{{ contact.name }}</small>
+</h1>
 
 <div class="container">
   <div>
@@ -43,10 +47,24 @@
 
       <br />
 
-      <button mat-raised-button color="warn" (click)="save()">
-        <mat-icon>save</mat-icon>
-        Save
-      </button>
+      <div>
+        <button mat-raised-button color="primary" (click)="save()">
+          <mat-icon>save</mat-icon>
+          {{ contact.id ? "Update" : "Create" }}
+        </button>
+
+        <span class="spacer"></span>
+
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="delete()"
+          *ngIf="contact.id"
+        >
+          <mat-icon>save</mat-icon>
+          Delete
+        </button>
+      </div>
     </div>
   </div>
 

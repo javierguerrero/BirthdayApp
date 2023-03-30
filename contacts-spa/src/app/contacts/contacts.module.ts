@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
 import { FormsModule } from '@angular/forms';
 import { CreateComponent } from './pages/create/create.component';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CreateComponent } from './pages/create/create.component';
     HomeComponent,
     ListComponent,
     ContactCardComponent,
+    ConfirmComponent,
   ],
   imports: [CommonModule, ContactsRoutingModule, MaterialModule, FormsModule],
 })
