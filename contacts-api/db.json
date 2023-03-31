@@ -1,4 +1,11 @@
 {
+  "users": [
+   {
+	"id": 1,
+	"username": "johndoe",
+	"email": "john.due@gmail.com"
+    }
+  ],
   "contacts": [
     {
       "id": 1,

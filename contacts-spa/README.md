@@ -31,6 +31,13 @@ ng g environments
 CSS Grid Generator
 https://cssgrid-generator.netlify.app/
 
+
+Crear un Guard
+ng g guard auth/guards/auth
+
+
+
+
 # Contacts
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
