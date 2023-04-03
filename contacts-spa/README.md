@@ -11,6 +11,9 @@ ng serve -o
 Crear módulo
 ng g m auth
 
+Crear módulo con routing
+ng g m auth --routing
+
 Crear un componente
 ng g c auth/pages/login
 
@@ -31,12 +34,19 @@ ng g environments
 CSS Grid Generator
 https://cssgrid-generator.netlify.app/
 
-
 Crear un Guard
 ng g guard auth/guards/auth
 
+Autenticación mediante Google
 
+1. configuracion en Google Console
+   https://console.cloud.google.com/
 
+- Configure consent screen (OAuth consent screen)
+- APIs & Services >> Credentials >> OAth client ID
+- Save the "Client ID"
+- Display the Sign In With Google button (https://developers.google.com/identity/gsi/web/guides/display-button#javascript)
+- Para ver el contenido del token, usar https://jwt.io/
 
 # Contacts
 

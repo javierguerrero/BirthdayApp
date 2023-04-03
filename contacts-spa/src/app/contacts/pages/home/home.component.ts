@@ -12,9 +12,12 @@ export class HomeComponent {
     return this.authService.auth;
   }
 
+  user: any = {};
+
   constructor(private router: Router, private authService: AuthService) {}
 
   logout() {
     this.router.navigate(['./auth']);
+    this.authService.logout();
   }
 }

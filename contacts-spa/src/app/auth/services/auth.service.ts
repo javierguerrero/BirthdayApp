@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { Auth } from '../interfaces/auth.interface';
+import { AuthResponse, User } from '../interfaces/auth.interface';
 import { tap, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 
@@ -9,8 +9,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl: string = environment.baseUrl;
-  private _auth: Auth | undefined;
+  private _auth: AuthResponse | undefined;
 
   constructor(private http: HttpClient) {}
 
@@ -23,26 +22,36 @@ export class AuthService {
       return of(false);
     }
 
-    return this.http.get<Auth>(`${this.baseUrl}/users/1`).pipe(
-      map((auth) => {
-        this._auth = auth;
-        return true;
-      })
-    );
+    var info = this.parseJwt(localStorage.getItem('token'));
+    this._auth = {
+      id: '',
+      email: '',
+      username: info.name,
+    };
+    return of(true);
   }
 
-  login() {
-    return this.http.get<Auth>(`${this.baseUrl}/users/1`).pipe(
-      tap((auth) => {
-        this._auth = auth;
-      }),
-      tap((auth) => {
-        localStorage.setItem('token', auth.id);
-      })
+  parseJwt(token: any) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(
+      window
+        .atob(base64)
+        .split('')
+        .map(function (c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join('')
     );
+
+    return JSON.parse(jsonPayload);
+  }
+
+  validateToken() {
+    //https://developers.google.com/identity/protocols/oauth2#expiration
   }
 
   logout() {
-    this._auth = undefined;
+    localStorage.clear();
   }
 }
