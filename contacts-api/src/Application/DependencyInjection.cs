@@ -19,9 +19,10 @@ namespace Application
             IMapper mapper = autoMapperConfig.CreateMapper();
 
             // Inyección de dependencias de servicios personalizados
-            services.AddScoped<IGetAllContactService, GetAllContactService>();
-            services.AddScoped<IMapperService, MapperService>();
             services.AddSingleton(mapper);
+            services.AddScoped<IMapperService, MapperService>();
+            services.AddScoped<IGetAllContactService, GetAllContactService>();
+            services.AddScoped<IGetContactService, GetContactService>();
 
             return services;
         }

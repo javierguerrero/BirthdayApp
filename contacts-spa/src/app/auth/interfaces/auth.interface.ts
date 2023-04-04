@@ -3,8 +3,3 @@ export interface AuthResponse {
   email: string;
   username: string;
 }
-
-export interface User {
-  id: string;
-  name: string;
-}

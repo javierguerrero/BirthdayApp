@@ -9,8 +9,8 @@ namespace Domain.Interfaces.Repositories
 {
     public interface IContactRepository
     {
-        Task<IEnumerable<Contact>> GetAllAsync();
         Task<Contact> GetAsync(int id);
+        Task<IEnumerable<Contact>> GetAllAsync();
         Task CreateAsync(Contact entity);
         Task DeleteAsync(int id);
     }

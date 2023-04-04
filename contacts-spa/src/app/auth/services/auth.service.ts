@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { AuthResponse, User } from '../interfaces/auth.interface';
-import { tap, map } from 'rxjs/operators';
+import { AuthResponse } from '../interfaces/auth.interface';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -10,8 +9,6 @@ import { Observable, of } from 'rxjs';
 })
 export class AuthService {
   private _auth: AuthResponse | undefined;
-
-  constructor(private http: HttpClient) {}
 
   get auth() {
     return { ...this._auth };

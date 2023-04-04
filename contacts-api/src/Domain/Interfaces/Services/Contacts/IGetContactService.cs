@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace Domain.Interfaces.Services.Contacts
 {
     public interface IGetContactService
     {
-        string GetContact(string id);
+        Task<Contact> GetContactAsync(int id);
     }
 }
+
+

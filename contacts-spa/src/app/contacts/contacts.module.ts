@@ -8,12 +8,12 @@ import { ContactsRoutingModule } from './contacts-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
 import { FormsModule } from '@angular/forms';
-import { CreateComponent } from './pages/create/create.component';
+import { UpsertComponent } from './pages/upsert/upsert.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
 
 @NgModule({
   declarations: [
-    CreateComponent,
+    UpsertComponent,
     SearchComponent,
     ContactComponent,
     HomeComponent,

@@ -8,11 +8,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmComponent } from '../../components/confirm/confirm.component';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css'],
+  selector: 'app-upsert',
+  templateUrl: './upsert.component.html',
+  styleUrls: ['./upsert.component.css'],
 })
-export class CreateComponent {
+export class UpsertComponent {
   genders = [
     { id: 1, description: 'Male' },
     { id: 2, description: 'Female' },
@@ -20,9 +20,9 @@ export class CreateComponent {
 
   contact: Contact = {
     name: '',
-    lastname: '',
+    lastName: '',
     email: '',
-    phonenumber: '',
+    phoneNumber: '',
   };
 
   constructor(
@@ -43,7 +43,7 @@ export class CreateComponent {
     if (this.contact.name.trim().length === 0) {
       return;
     }
-    if (this.contact.phonenumber.trim().length === 0) {
+    if (this.contact.phoneNumber.trim().length === 0) {
       return;
     }
 

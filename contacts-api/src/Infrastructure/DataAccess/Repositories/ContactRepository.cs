@@ -13,6 +13,11 @@ namespace Infrastructure.DataAccess.Repositories
             _context = context;
         }
 
+        public async Task<Contact> GetAsync(int id)
+        {
+            return await _context.Contacts.SingleAsync(x => x.Id == id);
+        }
+
         public async Task<IEnumerable<Contact>> GetAllAsync()
         {
             return await _context.Contacts.ToListAsync();
@@ -29,9 +34,6 @@ namespace Infrastructure.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Contact> GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

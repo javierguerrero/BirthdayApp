@@ -7,17 +7,14 @@
 <ng-template #divContact>
   <div class="container">
     <div>
-      <h1>{{ contact.name }} <small>{{ contact.lastname }}</small></h1>
-      <mat-divider></mat-divider>
-      <br />
       <img src="assets/no-image.png" />
     </div>
     <div>
-      <h1>Info</h1>
+      <h1>{{ contact.name }} {{ contact.lastName }}</h1>
       <mat-divider></mat-divider>
       <mat-list>
-        <mat-list-item>{{ contact.email }}</mat-list-item>
-        <mat-list-item>{{ contact.phonenumber }}</mat-list-item>
+        <mat-list-item>Email: {{ contact.email }}</mat-list-item>
+        <mat-list-item>Phone: {{ contact.phoneNumber }}</mat-list-item>
       </mat-list>
 
       <br />

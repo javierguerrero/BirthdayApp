@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
-import { CreateComponent } from './pages/create/create.component';
+import { UpsertComponent } from './pages/upsert/upsert.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -17,11 +17,11 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: CreateComponent,
+        component: UpsertComponent,
       },
       {
         path: 'edit/:id',
-        component: CreateComponent,
+        component: UpsertComponent,
       },
       {
         path: 'search',
