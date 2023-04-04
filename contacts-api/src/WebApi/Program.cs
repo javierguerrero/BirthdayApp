@@ -9,7 +9,7 @@ var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetRequiredService<IConfiguration>();
 
 builder.Services
-    .AddApplication()
+    .AddApplication(configuration)
     .AddInfrastructure(configuration);
 
 builder.Services.AddControllers();

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Contacts.Commands
+namespace Domain.Interfaces.Services.Contacts
 {
-    public class DeleteContactCommand
+    public interface IGetContactService
     {
+        string GetContact(string id);
     }
 }

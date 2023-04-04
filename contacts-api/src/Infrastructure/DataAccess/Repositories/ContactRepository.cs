@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-using Domain.Interfaces;
+using Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.DataAccess.Repositories
@@ -13,15 +13,25 @@ namespace Infrastructure.DataAccess.Repositories
             _context = context;
         }
 
-        public async Task AddAsync(Contact entity)
+        public async Task<IEnumerable<Contact>> GetAllAsync()
+        {
+            return await _context.Contacts.ToListAsync();
+        }
+
+        public async Task CreateAsync(Contact entity)
         {
             await _context.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Contact>> GetAllAsync()
+        public Task DeleteAsync(int id)
         {
-            return await _context.Contacts.ToListAsync();
+            throw new NotImplementedException();
+        }
+
+        public Task<Contact> GetAsync(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

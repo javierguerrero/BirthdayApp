@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces
+namespace Domain.Interfaces.Services.Contacts
 {
-    public interface IContactRepository
+    public interface ICreateContactService
     {
-        Task AddAsync(Contact entity);
-        Task<IEnumerable<Contact>> GetAllAsync();
+        Contact CreateContact(Contact contact);
     }
 }

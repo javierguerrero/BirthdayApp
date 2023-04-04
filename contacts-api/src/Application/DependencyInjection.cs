@@ -1,21 +1,29 @@
-﻿using FluentValidation;
+﻿using Application.Services;
+using Application.Services.Contacts;
+using AutoMapper;
+using Domain.Interfaces.Services.Contacts;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
-            var assembly = typeof(DependencyInjection).Assembly;
+            // Configuración AutoMapper
+            var autoMapperConfig = new MapperConfiguration(mapperConfig =>
+            {
+                mapperConfig.AddMaps(typeof(IMapperService).Assembly);
+            });
+            IMapper mapper = autoMapperConfig.CreateMapper();
 
-            services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(assembly));
-
-            services.AddValidatorsFromAssembly(assembly);
+            // Inyección de dependencias de servicios personalizados
+            services.AddScoped<IGetAllContactService, GetAllContactService>();
+            services.AddScoped<IMapperService, MapperService>();
+            services.AddSingleton(mapper);
 
             return services;
         }
     }
 }
-
-
