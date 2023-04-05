@@ -110,7 +110,7 @@ This section provides an overview of the BirthdayApp software architecture.
 
 The following diagram shows the logical containers that make up the BirthdayApp system. The diagram does not represent the physical number and location of containers - please see the infrastructure and deployment sections for this information.
 
-![](https://drive.google.com/uc?id=13jQbgeE98V2CUwzMvOaNLiSw0m0MyuLo)
+![](https://drive.google.com/uc?id=1WkzdFAeVOG7KocJSl7oOvSkv6YS9TxXa)
 
 - **Contacts Web:**
 - **Contacts API:**
