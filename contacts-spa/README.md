@@ -1,3 +1,6 @@
+Crear una nueva aplicación
+ng new heroesApp
+
 Angular Material
 https://material.angular.io/guide/getting-started
 ng add @angular/material
@@ -47,6 +50,12 @@ Autenticación mediante Google
 - Save the "Client ID"
 - Display the Sign In With Google button (https://developers.google.com/identity/gsi/web/guides/display-button#javascript)
 - Para ver el contenido del token, usar https://jwt.io/
+
+
+
+
+
+
 
 # Contacts
 
