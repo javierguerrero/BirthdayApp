@@ -5,6 +5,12 @@ Angular Material
 https://material.angular.io/guide/getting-started
 ng add @angular/material
 
+
+Librería iconos Angular Material
+https://fonts.google.com/icons
+
+
+
 Reconstruir módulo de nodejs
 npm install
 
@@ -19,6 +25,11 @@ ng g m auth --routing
 
 Crear un componente
 ng g c auth/pages/login
+
+Crear un Servicio
+ng g s heroes/services/heroes 
+
+
 
 Crear módulo en la raiz del proyecto
 ng g m appRouting --flat

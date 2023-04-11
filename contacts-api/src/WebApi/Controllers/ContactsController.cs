@@ -1,27 +1,34 @@
 ﻿using Application.DTOs;
 using Application.Services;
+using Application.Services.Contacts;
 using Domain.Interfaces.Services.Contacts;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers.Contacts
+namespace WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class GetAllContactController : ControllerBase
+    public class ContactsController : ControllerBase
     {
-        private readonly ILogger<GetAllContactController> _logger;
+        private readonly ILogger<ContactsController> _logger;
         private readonly IGetAllContactService _getAllContactService;
+        private readonly IGetContactService _getContactService;
         private readonly IMapperService _mapperService;
 
-        public GetAllContactController(ILogger<GetAllContactController> logger, IGetAllContactService getAllContactService, IMapperService mapperService)
+        public ContactsController(
+            ILogger<ContactsController> logger, 
+            IGetAllContactService getAllContactService,
+            IGetContactService getContactService,
+            IMapperService mapperService)
         {
             _logger = logger;
             _getAllContactService = getAllContactService;
+            _getContactService = getContactService;
             _mapperService = mapperService;
         }
 
+        //GET /contacts
         [HttpGet]
-        [Route("[action]")]
         public async Task<IActionResult> GetAllContacts()
         {
             var entities = await _getAllContactService.GetAllContacts();
@@ -32,6 +39,15 @@ namespace WebApi.Controllers.Contacts
                 results.Add(_mapperService.ConvertToDto(entity));
             }
             return Ok(results);
+        }
+
+        //GET /contacts/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetContact(int id)
+        {
+            var entity = await _getContactService.GetContactAsync(id);
+            var dto = _mapperService.ConvertToDto(entity);
+            return Ok(dto);
         }
     }
 }

@@ -13,15 +13,11 @@ export class ContactsService {
   constructor(private http: HttpClient) {}
 
   getContacts(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(
-      `${this.baseUrl}/GetAllContact/GetAllContacts`
-    );
+    return this.http.get<Contact[]>(`${this.baseUrl}/contacts`);
   }
 
   getContactById(id: number): Observable<Contact> {
-    return this.http.get<Contact>(
-      `${this.baseUrl}/GetContact/GetContact?id=${id}`
-    );
+    return this.http.get<Contact>(`${this.baseUrl}/contacts/${id}`);
   }
 
   getSuggestions(term: string): Observable<Contact[]> {
