@@ -14,12 +14,14 @@ namespace WebApi.Controllers
         private readonly IGetAllContactService _getAllContactService;
         private readonly ICreateContactService _createContactService;
         private readonly IGetContactService _getContactService;
+        private readonly IDeleteContactService _deleteContactService;
 
         public ContactsController(
             ILogger<ContactsController> logger,
             IGetAllContactService getAllContactService,
             IGetContactService getContactService,
             ICreateContactService createContactService,
+            IDeleteContactService deleteContactService,
             IMapperService mapperService)
         {
             _logger = logger;
@@ -27,8 +29,10 @@ namespace WebApi.Controllers
             _getAllContactService = getAllContactService;
             _getContactService = getContactService;
             _createContactService = createContactService;
+            _deleteContactService = deleteContactService;
         }
 
+        //POST /contacts
         [HttpPost]
         public async Task<IActionResult> AddContact([FromBody] ContactDto dto)
         {
@@ -36,6 +40,15 @@ namespace WebApi.Controllers
             var output = _mapperService.ConvertToDto(await _createContactService.CreateContact(entity));
 
             return Ok(output);
+        }
+
+        //DELETE /contacts/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteContact(int id)
+        {
+            await _deleteContactService.DeleteContact(id);
+
+            return NoContent();
         }
 
         //GET /contacts

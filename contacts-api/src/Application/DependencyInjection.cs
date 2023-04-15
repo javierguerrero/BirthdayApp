@@ -23,6 +23,7 @@ namespace Application
             services.AddScoped<IGetAllContactService, GetAllContactService>();
             services.AddScoped<IGetContactService, GetContactService>();
             services.AddScoped<ICreateContactService, CreateContactService>();
+            services.AddScoped<IDeleteContactService, DeleteContactService>();
 
             return services;
         }

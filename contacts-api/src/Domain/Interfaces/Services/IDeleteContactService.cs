@@ -8,6 +8,6 @@ namespace Domain.Interfaces.Services
 {
     public interface IDeleteContactService
     {
-        void DeleteContact(int contactId);
+        Task DeleteContact(int id);
     }
 }

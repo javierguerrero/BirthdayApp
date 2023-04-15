@@ -23,9 +23,14 @@ namespace Infrastructure.DataAccess.Repositories
             return await _context.Contacts.ToListAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var contact = await _context.Contacts.SingleAsync(c => c.Id == id);
+
+            if (contact is not null) { 
+                _context.Contacts.Remove(contact);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<Contact> CreateAsync(Contact entity)
