@@ -34,7 +34,9 @@ There are two types of systems that BirthdayApp integrates with.
 
 ## Functional Overview
 
-This section provides a summary of the functionality provided by the BirthdayApp.
+This section provides a summary of the functionality provided by the BirthdayApp. We are going to focus on a technique called "Example Mapping" that is a simple and efficent way to facilitate your requirement workshops.
+
+![](https://drive.google.com/uc?id=12j-geiqN9bqj_C5yokVXyqe2oiRbcr64)
 
 ### Gestionar contactos
 
