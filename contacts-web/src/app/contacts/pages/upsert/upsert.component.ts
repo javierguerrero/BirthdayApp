@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Contact } from '../../interfaces/contacts.interface';
+import { Contact } from '../../interfaces/contact.interface';
 import { ContactsService } from '../../services/contacts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
@@ -21,6 +21,7 @@ export class UpsertComponent {
   contact: Contact = {
     name: '',
     lastName: '',
+    birthday: new Date(),
     email: '',
     phoneNumber: '',
   };
@@ -34,6 +35,8 @@ export class UpsertComponent {
   ) {}
 
   ngOnInit() {
+    if (!this.router.url.includes('edit')) return;
+
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.contactService.getContactById(id)))
       .subscribe((contact) => (this.contact = contact));

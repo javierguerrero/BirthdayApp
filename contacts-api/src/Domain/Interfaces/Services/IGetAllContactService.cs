@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces.Services.Contacts
+namespace Domain.Interfaces.Services
 {
-    public interface IGetContactService
+    public interface IGetAllContactService
     {
-        Task<Contact> GetContactAsync(int id);
+        Task<IEnumerable<Contact>> GetAllContacts();
     }
 }
-
 

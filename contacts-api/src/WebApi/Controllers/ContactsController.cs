@@ -1,7 +1,6 @@
 ﻿using Application.DTOs;
 using Application.Services;
-using Application.Services.Contacts;
-using Domain.Interfaces.Services.Contacts;
+using Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -11,20 +10,32 @@ namespace WebApi.Controllers
     public class ContactsController : ControllerBase
     {
         private readonly ILogger<ContactsController> _logger;
-        private readonly IGetAllContactService _getAllContactService;
-        private readonly IGetContactService _getContactService;
         private readonly IMapperService _mapperService;
+        private readonly IGetAllContactService _getAllContactService;
+        private readonly ICreateContactService _createContactService;
+        private readonly IGetContactService _getContactService;
 
         public ContactsController(
-            ILogger<ContactsController> logger, 
+            ILogger<ContactsController> logger,
             IGetAllContactService getAllContactService,
             IGetContactService getContactService,
+            ICreateContactService createContactService,
             IMapperService mapperService)
         {
             _logger = logger;
+            _mapperService = mapperService;
             _getAllContactService = getAllContactService;
             _getContactService = getContactService;
-            _mapperService = mapperService;
+            _createContactService = createContactService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddContact([FromBody] ContactDto dto)
+        {
+            var entity = _mapperService.ConvertToEntity(dto);
+            var output = _mapperService.ConvertToDto(await _createContactService.CreateContact(entity));
+
+            return Ok(output);
         }
 
         //GET /contacts
@@ -46,8 +57,9 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetContact(int id)
         {
             var entity = await _getContactService.GetContactAsync(id);
-            var dto = _mapperService.ConvertToDto(entity);
-            return Ok(dto);
+            var output = _mapperService.ConvertToDto(entity);
+
+            return Ok(output);
         }
     }
 }

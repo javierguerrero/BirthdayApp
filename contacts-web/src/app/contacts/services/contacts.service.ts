@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Contact } from '../interfaces/contacts.interface';
+import { Contact } from '../interfaces/contact.interface';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -11,6 +11,10 @@ export class ContactsService {
   private baseUrl: string = environment.baseUrl;
 
   constructor(private http: HttpClient) {}
+
+  addContact(contact: Contact): Observable<Contact> {
+    return this.http.post<Contact>(`${this.baseUrl}/contacts`, contact);
+  }
 
   getContacts(): Observable<Contact[]> {
     return this.http.get<Contact[]>(`${this.baseUrl}/contacts`);
@@ -24,10 +28,6 @@ export class ContactsService {
     return this.http.get<Contact[]>(
       `${this.baseUrl}/contacts?q=${term}&_limit=6`
     );
-  }
-
-  addContact(contact: Contact): Observable<Contact> {
-    return this.http.post<Contact>(`${this.baseUrl}/contacts`, contact);
   }
 
   updateContact(contact: Contact): Observable<Contact> {

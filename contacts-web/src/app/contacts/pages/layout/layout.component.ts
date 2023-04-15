@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.css'],
 })
-export class HomeComponent {
+export class LayoutComponent {
   get auth() {
     return this.authService.auth;
   }

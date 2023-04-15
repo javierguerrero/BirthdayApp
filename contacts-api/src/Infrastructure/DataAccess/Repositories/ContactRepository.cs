@@ -23,17 +23,16 @@ namespace Infrastructure.DataAccess.Repositories
             return await _context.Contacts.ToListAsync();
         }
 
-        public async Task CreateAsync(Contact entity)
-        {
-            await _context.AddAsync(entity);
-            await _context.SaveChangesAsync();
-        }
-
         public Task DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-
+        public async Task<Contact> CreateAsync(Contact entity)
+        {
+            await _context.AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return entity;
+        }
     }
 }

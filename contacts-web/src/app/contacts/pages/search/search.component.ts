@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { Contact } from '../../interfaces/contacts.interface';
+import { Contact } from '../../interfaces/contact.interface';
 import { ContactsService } from '../../services/contacts.service';
 
 @Component({

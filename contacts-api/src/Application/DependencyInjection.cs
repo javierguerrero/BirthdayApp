@@ -1,7 +1,6 @@
 ﻿using Application.Services;
-using Application.Services.Contacts;
 using AutoMapper;
-using Domain.Interfaces.Services.Contacts;
+using Domain.Interfaces.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,6 +22,7 @@ namespace Application
             services.AddScoped<IMapperService, MapperService>();
             services.AddScoped<IGetAllContactService, GetAllContactService>();
             services.AddScoped<IGetContactService, GetContactService>();
+            services.AddScoped<ICreateContactService, CreateContactService>();
 
             return services;
         }

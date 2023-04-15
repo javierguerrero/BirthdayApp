@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Contact } from '../../interfaces/contacts.interface';
+import { Contact } from '../../interfaces/contact.interface';
 import { ContactsService } from '../../services/contacts.service';
 import { switchMap } from 'rxjs/operators';
 

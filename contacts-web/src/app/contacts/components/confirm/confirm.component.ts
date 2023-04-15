@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Contact } from '../../interfaces/contacts.interface';
+import { Contact } from '../../interfaces/contact.interface';
 
 @Component({
   selector: 'app-confirm',

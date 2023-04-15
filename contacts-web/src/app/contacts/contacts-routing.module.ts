@@ -4,12 +4,12 @@ import { ListComponent } from './pages/list/list.component';
 import { UpsertComponent } from './pages/upsert/upsert.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { HomeComponent } from './pages/home/home.component';
+import { LayoutComponent } from './pages/layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: LayoutComponent,
     children: [
       {
         path: 'list',

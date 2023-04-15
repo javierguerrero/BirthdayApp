@@ -204,42 +204,5 @@ This section provides information about the mapping between the software archite
 
 Azure Function
 
-## Development Environment
 
-### Migrations commnands in EF Core
 
-**Adding a migration**
-
-```
-PM> Add-Migration
-```
-
-- Startup project: BirthdayBot
-- Default project in PMC: Infrastructure
-
-**Create or Update the Database**
-
-```
-PM> Update-Database
-```
-
-**Remove a migration**
-
-```
-PM> Remove-Migration
-```
-
-**Deshacer último Update-Database**
-
-```
-PM> Update-Database [Migration_Name]
-```
-
-**Variable de entorno: ConnectionString**
-
-```
-$env:SqlConnectionString="Server=DESKTOP-UAKPHLG\SQLEXPRESS; Database=sqldb-birthdaybot-dev; Trusted_Connection=True; TrustServerCertificate=True;"
-```
-
-https://www.labnol.org/google-drive-image-hosting-220515
-https://www.markdownguide.org/basic-syntax/

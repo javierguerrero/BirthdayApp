@@ -1,8 +1,8 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Services.Contacts;
+using Domain.Interfaces.Services;
 
-namespace Application.Services.Contacts
+namespace Application.Services
 {
     public class GetContactService : IGetContactService
     {

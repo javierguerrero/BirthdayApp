@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './pages/search/search.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { HomeComponent } from './pages/home/home.component';
+import { LayoutComponent } from './pages/layout/layout.component';
 import { ListComponent } from './pages/list/list.component';
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { MaterialModule } from '../material/material.module';
@@ -16,7 +16,7 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     UpsertComponent,
     SearchComponent,
     ContactComponent,
-    HomeComponent,
+    LayoutComponent,
     ListComponent,
     ContactCardComponent,
     ConfirmComponent,
