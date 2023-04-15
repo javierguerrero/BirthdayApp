@@ -38,15 +38,63 @@ This section provides a summary of the functionality provided by the BirthdayApp
 
 ### Gestionar contactos
 
-- **Description:** _Como_ usuario _quiero_ realizar altas, bajas y modificaciones de contactos _para_ poder mandar saludos de cumpleaños.
+```
+Como: usuario
+Quiero: realizar altas, bajas y modificaciones de contactos
+Para: enviar saludos de cumpleaños
+
+    1. Rule: Agregar nuevo contacto incluyendo datos mínimos de nombre, fecha de nacimiento, email y celular.
+        a. Datos completos
+            * Peter selecciona la opción 'nuevo contacto'
+            * Ingresa los datos: nombre('Javier'), fecha de nacimiento ('17/02/1982'), email('javier@mail.com') y celular('+51985693128')
+            * Guarda los datos
+            * Contacto creado exitosamente
+        b. Datos incompletos
+            * Peter selecciona la opción 'nuevo contacto'
+            * Ingreso los datos: nombre('Javier'), email('javier@gmail.com)
+            * Guarda los datos
+            * Mensaje de error: todo los campos son obligatorios
+    2. Rule: Editar Contacto
+        a. Modificar celular
+            * Tim selecciona contacto 'Javier' de la lista de contactos
+            * Cambiar celular('+51976268172')
+            * Guarda cambio
+            * Cambio aceptado
+    3. Rule: Eliminar Contacto
+        a. Eliminación confirmada
+            * Hay un contacto 'Javier' en la lista de contactos
+            * George elige la opción de eliminar al contacto 'Javier'
+            * Aparece cuadro de diálogo para confirmar elimimación
+            * Selecciona que si
+            * Se elimina contacto de la lista de contactos
+```
 
 ### Recordar los cumpleaños del día
 
-- **Description:** _Como_ usuario _quiero_ recibir una notificación vía email con la lista de personas cumplen años hoy _para_ saludarlos personalmente.
+```
+Como: usuario
+Quiero: Recibir una notificación vía email con la lista de personas cumplen años hoy
+Para: saludarlos personalmente
+
+    1. Rule: abc
+        a. xyz
+        b. mnp
+
+    2. Rule: prq
+        a. uyt
+        b. pow
+```
 
 ### Enviar saludo de cumpleaños automáticamente por SMS
 
-- **Description:** _Como_ usuario _quiero_ mandar saludos vía SMS a los que cumplen años hoy _para_ mitigar el riesgo de olvidar el saludo de esa fecha especial.
+```
+Como: usuario
+Quiero: mandar saludos vía SMS a los que cumplen años hoy
+Para: mitigar el riesgo de olvidar el saludo de esa fecha especial
+
+    1. Rule:
+    2. Rule:
+```
 
 ## Quality Attributes
 
