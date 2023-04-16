@@ -162,10 +162,10 @@ The following diagram shows the logical containers that make up the BirthdayApp 
 
 ![](https://drive.google.com/uc?id=1WkzdFAeVOG7KocJSl7oOvSkv6YS9TxXa)
 
-- **Contacts Web:**
+- **Contacts Web:** A JavaScript application running in a web browser using Angular.
 - **Contacts API:**
 - **Database:** A SQL Server database that stores that stores the majority of the data behind the BirthdayApp.
-- **BirthdayBot:**
+- **BirthdayBot:** A single serverless function using Azure Function.
 
 ### Components - BirthdayBot
 
@@ -177,32 +177,27 @@ This section provides information about the infrastructure architecture of the B
 
 ### Live environment
 
-The live environment is very simple; it's a single Cloud Server at Azure, hosted in the East US location as follows:
+The live environment is very simple. We are going to use the following Azure Cloud Services:
 
-#### Azure function
+- **App Service**
+  - Description: Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends.
+- **Azure function**
+  - Description: Azure Function is a serverless compute service that enables user to run event-triggered code without having to provision or manage infrastructure.
+  - Notes: Ingresar a "Settings >> Configuration" y crear una nueva "application setting" con el nombre "SqlConnectionString".
+- **SQL Database**
+  - Description: Azure SQL Database is an always-up-to-date, fully managed relational database service built for the cloud.
+  - Notes: Para que la Azure App Service pueda acceder al servidor de BD, tenemos que entrar a este (la BD) y marcar la opción "Allow Azure services and resources to access to this server".
 
-- **Description:** Azure Function is a serverless compute service that enables user to run event-triggered code without having to provision or manage infrastructure.
-- **Notes:** Ingresar a "Settings >> Configuration" y crear una nueva "application setting" con el nombre "SqlConnectionString".
+When creating a new resource in Azure, it is necessary to adhere to certain naming conventions. To view Microsoft Azure's recommended naming conventions, see the following links:
 
-#### SQL Database
-
-- **Description:** Azure SQL Database is an always-up-to-date, fully managed relational database service built for the cloud.
-- **Notes:** Para que la Azure Function pueda acceder al servidor de BD, tenemos que entrar a este y marcar la opción "Allow Azure services and resources to access to this server".
-
-#### Web App
-
-- **Description:** Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends.
-- **Notes:** -
-
-[Azure naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
+- [Azure naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 
 ## Deployment
 
-This section provides information about the mapping between the software architecture and the infrastructure architecture.
+This section provides information about the mapping between the software architecture and the infrastructure architecture. A deployment diagram allows you to illustrate how instances of software systems and/or containers in the static model are deployed on to the infrastructure within a given **deployment environment** (e.g. production, staging, development, etc).
+
+![](https://drive.google.com/uc?id=1oOHkLV_jLLi0ZcfO5DIPOnydf6kYqe2f)
 
 ## Operation and Support
 
 Azure Function
-
-
-
