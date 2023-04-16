@@ -24,6 +24,7 @@ namespace Application
             services.AddScoped<IGetContactService, GetContactService>();
             services.AddScoped<ICreateContactService, CreateContactService>();
             services.AddScoped<IDeleteContactService, DeleteContactService>();
+            services.AddScoped<IUpdateContactService, UpdateContactService>();
 
             return services;
         }

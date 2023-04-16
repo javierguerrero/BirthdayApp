@@ -15,14 +15,16 @@ namespace WebApi.Controllers
         private readonly ICreateContactService _createContactService;
         private readonly IGetContactService _getContactService;
         private readonly IDeleteContactService _deleteContactService;
+        private readonly IUpdateContactService _updateContactService;
 
         public ContactsController(
             ILogger<ContactsController> logger,
+            IMapperService mapperService,
             IGetAllContactService getAllContactService,
             IGetContactService getContactService,
             ICreateContactService createContactService,
             IDeleteContactService deleteContactService,
-            IMapperService mapperService)
+            IUpdateContactService updateContactService)
         {
             _logger = logger;
             _mapperService = mapperService;
@@ -30,6 +32,7 @@ namespace WebApi.Controllers
             _getContactService = getContactService;
             _createContactService = createContactService;
             _deleteContactService = deleteContactService;
+            _updateContactService = updateContactService;
         }
 
         //POST /contacts
@@ -46,6 +49,10 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContact(int id)
         {
+            var contact = await _getContactService.GetContactAsync(id);
+            if (contact is null) 
+                return NotFound();
+
             await _deleteContactService.DeleteContact(id);
 
             return NoContent();
@@ -73,6 +80,20 @@ namespace WebApi.Controllers
             var output = _mapperService.ConvertToDto(entity);
 
             return Ok(output);
+        }
+
+        //PUT /contacts/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateContact(int id, ContactDto dto)
+        {
+            var contact = await _getContactService.GetContactAsync(id);
+            if (contact is null)
+                return NotFound();
+
+            var entity = _mapperService.ConvertToEntity(dto);
+            await _updateContactService.UpdateContact(entity);
+
+            return NoContent();
         }
     }
 }

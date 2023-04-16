@@ -39,5 +39,12 @@ namespace Infrastructure.DataAccess.Repositories
             await _context.SaveChangesAsync();
             return entity;
         }
+
+        public async Task UpdateAsync(Contact contact)
+        {
+            var entity = await _context.Contacts.SingleAsync(c => c.Id == contact.Id);
+            _context.Entry(entity).CurrentValues.SetValues(contact);
+            await _context.SaveChangesAsync();  
+        }
     }
 }

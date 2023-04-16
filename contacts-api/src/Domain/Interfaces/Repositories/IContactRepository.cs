@@ -12,6 +12,7 @@ namespace Domain.Interfaces.Repositories
         Task<Contact> GetAsync(int id);
         Task<IEnumerable<Contact>> GetAllAsync();
         Task<Contact> CreateAsync(Contact entity);
+        Task UpdateAsync(Contact entity);
         Task DeleteAsync(int id);
     }
 }
