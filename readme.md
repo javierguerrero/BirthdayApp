@@ -38,6 +38,8 @@ This section provides a summary of the functionality provided by the BirthdayApp
 
 ![](https://drive.google.com/uc?id=12j-geiqN9bqj_C5yokVXyqe2oiRbcr64)
 
+[Introducción al Mapeo de Ejemplos (Example Mapping)](https://blog.nicopaez.com/2023/04/05/introduccion-al-mapeo-de-ejemplos-example-mapping/)
+
 ### Gestionar contactos
 
 ```
@@ -183,20 +185,21 @@ The live environment is very simple. We are going to use the following Azure Clo
   - Description: Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends.
 - **Azure function**
   - Description: Azure Function is a serverless compute service that enables user to run event-triggered code without having to provision or manage infrastructure.
-  - Notes: Ingresar a "Settings >> Configuration" y crear una nueva "application setting" con el nombre "SqlConnectionString".
+  - Notes: Ingresar a "Settings >> Configuration" y bajo la sección "Connection strings" agregar "DefaultConnection".
 - **SQL Database**
   - Description: Azure SQL Database is an always-up-to-date, fully managed relational database service built for the cloud.
   - Notes: Para que la Azure App Service pueda acceder al servidor de BD, tenemos que entrar a este (la BD) y marcar la opción "Allow Azure services and resources to access to this server".
 
-When creating a new resource in Azure, it is necessary to adhere to certain naming conventions. To view Microsoft Azure's recommended naming conventions, see the following links:
-
-- [Azure naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
+When creating a new resource in Azure, it is necessary to adhere to certain naming conventions. To view Microsoft Azure's recommended naming conventions, see the following link: [Azure naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 
 ## Deployment
 
 This section provides information about the mapping between the software architecture and the infrastructure architecture. A deployment diagram allows you to illustrate how instances of software systems and/or containers in the static model are deployed on to the infrastructure within a given **deployment environment** (e.g. production, staging, development, etc).
 
 ![](https://drive.google.com/uc?id=1oOHkLV_jLLi0ZcfO5DIPOnydf6kYqe2f)
+
+[Deploying an Angular application in Azure
+](https://henriquesd.medium.com/deploying-an-angular-application-in-azure-9f89edfe2b9c)
 
 ## Operation and Support
 
