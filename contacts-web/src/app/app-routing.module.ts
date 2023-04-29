@@ -12,8 +12,8 @@ const routes: Routes = [
     path: 'contacts',
     loadChildren: () =>
       import('./contacts/contacts.module').then((m) => m.ContactsModule),
-    canLoad: [AuthGuard],
-    canActivate: [AuthGuard],
+    //canLoad: [AuthGuard],
+    //canActivate: [AuthGuard],
   },
   {
     path: '404',
@@ -21,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'auth',
+    //redirectTo: 'auth',
+    redirectTo: 'contacts',
   },
 ];
 
