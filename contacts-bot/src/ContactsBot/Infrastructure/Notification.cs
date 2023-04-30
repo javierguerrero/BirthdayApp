@@ -1,7 +1,7 @@
 ﻿using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 
-namespace Infrastructure.Notification
+namespace ContactsBot.Infrastructure
 {
     public class Notifier : INotifier
     {

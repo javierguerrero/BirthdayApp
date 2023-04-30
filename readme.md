@@ -80,13 +80,15 @@ Como: usuario
 Quiero: Recibir una notificación vía email con la lista de personas cumplen años hoy
 Para: saludarlos personalmente
 
-    1. Rule: abc
-        a. xyz
-        b. mnp
-
-    2. Rule: prq
-        a. uyt
-        b. pow
+    1. Rule: Notificación diaria
+        a. Hay cumpleaños
+            * Proceso automático consulta lista de contactos
+            * Se encuentran 2 cumpleañeros 'Ruth Holgin' y 'John Doe'
+            * Se envía notificación vía email con lista de cumpleañeros a email del admin
+        b. No hay cumpleaños
+            * Proceso automático consulta lista de contactos
+            * No se encuentran cumpleañeros
+            * No se envía notificación via email
 ```
 
 ### Enviar saludo de cumpleaños automáticamente por SMS
@@ -201,6 +203,10 @@ This section provides information about the mapping between the software archite
 [Deploying an Angular application in Azure
 ](https://henriquesd.medium.com/deploying-an-angular-application-in-azure-9f89edfe2b9c)
 
-## Operation and Support
+## Links
 
-Azure Function
+[Azure Functions – Time Trigger (CRON) Cheat Sheet](https://arminreiter.com/2017/02/azure-functions-time-trigger-cron-cheat-sheet/)
+
+[How To Setup Dependency Injection With Azure Functions](https://www.rahulpnath.com/blog/dependency-injection-in-azure-functions/)
+
+[Enabling SMTP Settings for a Gmail Inbox](https://help.accredible.com/smtp-setup-in-gmail-inbox)

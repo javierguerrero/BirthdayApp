@@ -1,6 +1,7 @@
+using ContactsBot.Infrastructure;
 using ContactsBot.Domain;
-using Infrastructure.Notification;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,21 +13,29 @@ namespace ContactsBot
 {
     public class ContactsBotFunction
     {
+        private readonly IConfiguration _configuration;
+
+        public ContactsBotFunction(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         [FunctionName("ContactsBotFunction")]
-        public async Task Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+        public async Task Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
             var contacts = await GetTodayBirthdaysAsync();
-            foreach (var contact in contacts)
-            {
-                var result = await SendMessageToContactAsync(contact);
-            }
-
-            //https://damienaicheh.github.io/azure/azure-functions/dotnet/2022/05/10/use-settings-json-azure-function-en.html
+            await SendBirthdayNotification(contacts);
         }
 
-        public async Task<bool> SendMessageToContactAsync(Contact contact)
+        private async Task SendBirthdayNotification(ICollection<Contact> contacts)
+        {
+            var smtpMailSender = new SmtpMailSender(_configuration);
+            await smtpMailSender.Send("Hola");
+        }
+
+        private async Task<bool> SendMessageToContactAsync(Contact contact)
         {
             var result = false;
             try
@@ -44,14 +53,14 @@ namespace ContactsBot
             return result;
         }
 
-        public async Task<ICollection<Contact>> GetTodayBirthdaysAsync()
+        private async Task<ICollection<Contact>> GetTodayBirthdaysAsync()
         {
             ICollection<Contact> todayBirthdays = new List<Contact>();
 
             try
             {
                 HttpClient httpClient = new HttpClient();
-                var request = await httpClient.GetAsync("https://app-contactsapi-prod.azurewebsites.net/contacts");
+                var request = await httpClient.GetAsync(_configuration["ContactsApi"]);
                 request.EnsureSuccessStatusCode();
 
                 var contacts = JsonSerializer.Deserialize<List<Contact>>(
@@ -67,7 +76,7 @@ namespace ContactsBot
                 {
                     //if (contact.Birthday.Day == today.Day && contact.Birthday.Month == today.Month)
                     //{
-                        todayBirthdays.Add(contact);
+                    todayBirthdays.Add(contact);
                     //}
                 }
             }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Notification
+namespace ContactsBot.Infrastructure
 {
     public interface INotifier
     {
