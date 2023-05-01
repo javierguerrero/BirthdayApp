@@ -28,10 +28,10 @@ namespace ContactsBot.Infrastructure
             mimeMessage.Subject = emailConfig.Subject;
 
             var bodyBuilder = new BodyBuilder();
-            bodyBuilder.TextBody = textBody;
+            bodyBuilder.HtmlBody = textBody;
 
             mimeMessage.Body = bodyBuilder.ToMessageBody();
-
+            
             // Configurar el cliente SMTP
             using (var smtpClient = new SmtpClient())
             {

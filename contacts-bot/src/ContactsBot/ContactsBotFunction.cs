@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using MimeKit;
 
 namespace ContactsBot
 {
@@ -21,18 +22,31 @@ namespace ContactsBot
         }
 
         [FunctionName("ContactsBotFunction")]
-        public async Task Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
+        public async Task Run([TimerTrigger("0 0 10 * * *")] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
             var contacts = await GetTodayBirthdaysAsync();
-            await SendBirthdayNotification(contacts);
+            await SendBirthdayEmailNotification(contacts);
         }
 
-        private async Task SendBirthdayNotification(ICollection<Contact> contacts)
+        private async Task SendBirthdayEmailNotification(ICollection<Contact> contacts)
         {
+            //TODO: Implementar Inyección de dependencias en la Azure Function
             var smtpMailSender = new SmtpMailSender(_configuration);
-            await smtpMailSender.Send("Hola");
+
+            if (contacts.Count == 0)
+                return;
+
+            var textBody = "<p>Los <strong>cumpleañeros</strong> de hoy son:</p>";
+            textBody += "<ul>";
+            foreach (var contact in contacts)
+            {
+                textBody += "<li>" + contact.Name + " " + contact.LastName + "</li>";
+            }
+            textBody += "</ul>";
+
+            await smtpMailSender.Send(textBody);
         }
 
         private async Task<bool> SendMessageToContactAsync(Contact contact)
@@ -74,10 +88,10 @@ namespace ContactsBot
                 DateTime today = DateTime.Today;
                 foreach (var contact in contacts)
                 {
-                    //if (contact.Birthday.Day == today.Day && contact.Birthday.Month == today.Month)
-                    //{
-                    todayBirthdays.Add(contact);
-                    //}
+                    if (contact.Birthday.Day == today.Day && contact.Birthday.Month == today.Month)
+                    {
+                        todayBirthdays.Add(contact);
+                    }
                 }
             }
             catch (Exception ex)
