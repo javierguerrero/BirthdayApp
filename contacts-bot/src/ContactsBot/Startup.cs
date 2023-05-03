@@ -1,5 +1,7 @@
-﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+﻿using ContactsBot.Infrastructure;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 
 [assembly: FunctionsStartup(typeof(ContactsBot.Startup))]
@@ -10,7 +12,7 @@ namespace ContactsBot
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-
+            builder.Services.AddTransient<IMailSender, SmtpMailSender>();
         }
 
         public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)

@@ -210,3 +210,7 @@ This section provides information about the mapping between the software archite
 [How To Setup Dependency Injection With Azure Functions](https://www.rahulpnath.com/blog/dependency-injection-in-azure-functions/)
 
 [Enabling SMTP Settings for a Gmail Inbox](https://help.accredible.com/smtp-setup-in-gmail-inbox)
+
+[¿Qué es el patrón Retry (Retry Pattern)?](https://keepcoding.io/blog/que-es-el-patron-retry/)
+
+[C# – How to use Polly to do retries](https://makolyte.com/csharp-how-to-use-polly-to-do-retries/)

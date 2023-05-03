@@ -1,40 +1,56 @@
-using ContactsBot.Infrastructure;
 using ContactsBot.Domain;
+using ContactsBot.Infrastructure;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Polly;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using MimeKit;
 
 namespace ContactsBot
 {
     public class ContactsBotFunction
     {
         private readonly IConfiguration _configuration;
+        private readonly IMailSender _mailSender;
 
-        public ContactsBotFunction(IConfiguration configuration)
+        public ContactsBotFunction(IConfiguration configuration, IMailSender mailSender)
         {
             _configuration = configuration;
+            _mailSender = mailSender;
         }
 
         [FunctionName("ContactsBotFunction")]
         public async Task Run([TimerTrigger("0 0 10 * * *")] TimerInfo myTimer, ILogger log)
+        //public async Task Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
-            var contacts = await GetTodayBirthdaysAsync();
-            await SendBirthdayEmailNotification(contacts);
+            //Build the policy
+            var retryPolicy = Policy
+                     .Handle<Exception>()
+                     .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
+
+            try
+            {
+                //Execute the error prone code with the policy
+                await retryPolicy.ExecuteAsync(async () =>
+                {
+                    var contacts = await GetTodayBirthdaysAsync();
+                    await SendBirthdayEmailNotification(contacts);
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
 
         private async Task SendBirthdayEmailNotification(ICollection<Contact> contacts)
         {
-            //TODO: Implementar Inyección de dependencias en la Azure Function
-            var smtpMailSender = new SmtpMailSender(_configuration);
-
             if (contacts.Count == 0)
                 return;
 
@@ -46,7 +62,7 @@ namespace ContactsBot
             }
             textBody += "</ul>";
 
-            await smtpMailSender.Send(textBody);
+            await _mailSender.Send(textBody);
         }
 
         private async Task<bool> SendMessageToContactAsync(Contact contact)
