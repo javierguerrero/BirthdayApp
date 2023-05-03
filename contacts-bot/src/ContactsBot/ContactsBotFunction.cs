@@ -24,8 +24,8 @@ namespace ContactsBot
         }
 
         [FunctionName("ContactsBotFunction")]
-        public async Task Run([TimerTrigger("0 0 10 * * *")] TimerInfo myTimer, ILogger log)
-        //public async Task Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
+        //public async Task Run([TimerTrigger("0 0 10 * * *")] TimerInfo myTimer, ILogger log)
+        public async Task Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
@@ -37,8 +37,10 @@ namespace ContactsBot
             try
             {
                 //Execute the error prone code with the policy
+                var attempt = 0;
                 await retryPolicy.ExecuteAsync(async () =>
                 {
+                    log.LogInformation($"Attempt {++attempt}");
                     var contacts = await GetTodayBirthdaysAsync();
                     await SendBirthdayEmailNotification(contacts);
                 });
